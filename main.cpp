@@ -32,9 +32,9 @@ double mySin(double x)
     int i, sign = 1, maxPower = (int)x*20;
     double sum = 0;
 
-    for (i = 0; i < maxPower; i++, sign = -sign)
+    for (i = 0; maxPower > i; i++, sign = -sign)
     {
-        sum = sum + sign * power
+        sum = sum + sign * maxPower;
     }
 
 
