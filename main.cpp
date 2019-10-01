@@ -35,10 +35,11 @@ double mySin(double x)
     for (i = 0; maxPower > i; i++, sign = -sign)
     {
         sum = sum + sign * maxPower;
+
     }
 
 
-    return 0;
+    return 5.12;
 }
 
 double myCos(double x)
