@@ -11,34 +11,28 @@
 
 using namespace std;
 
-double term(double x, int n)
+//power and factorial function
+double term(double x, int n, int max)
 {
-    //power function
     int i;
-    double prod1 = 1., prod2 = 1.;
+    double sum = x;
 
-    for (i = 0; i < n; i++)
-        prod1 = prod1 * x;
+    for (i = 1; max >= i; i++)
+        sum += x / i;
 
-    //factorial function
-    for(i = 1; i <= n; i++)
-        prod2 = prod2 * i;
-
-    return 0;
+    return sum;
 }
 
 double mySin(double x)
 {
-    int i, sign = 1, maxPower = (int)x*20;
-    double sum = 0;
+    int i, sign = 1, maxPower = (int)x*21;
+    double sum;
 
-    for (i = 0; i < maxPower; i++, sign = -sign)
-    {
-        sum = sum + sign * power
-    }
+    for (i = 0; maxPower > i; i++, sign = -sign)
+        sum = sum + sign * term(x, 2 * i + 1, maxPower);
 
 
-    return 0;
+    return sum;
 }
 
 double myCos(double x)
