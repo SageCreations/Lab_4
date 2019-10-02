@@ -12,13 +12,13 @@
 using namespace std;
 
 //power and factorial function
-double term(double x, int n, int max)
+double term(double x, int factorial)
 {
     int i;
-    double sum = x;
+    double sum = 0;
 
-    for (i = 1; max >= i; i++)
-        sum += x / i;
+    for (i = factorial; i >= 1; i--)
+        sum *= x / i;
 
     return sum;
 }
@@ -29,22 +29,29 @@ double mySin(double x)
     double sum;
 
     for (i = 0; maxPower > i; i++, sign = -sign)
-        sum = sum + sign * term(x, 2 * i + 1, maxPower);
-
+        sum += sign * term(x, 2 * i + 1);
 
     return sum;
 }
 
 double myCos(double x)
 {
+    int i, sign = 1, maxPower = (int)x*21;
+    double sum = 0;
 
-    return 0;
+    for (i = 1; maxPower >= i; i++, sign = -sign)
+        sum += sign * term(x, 2 * i);
+
+    return sum;
 }
 
 double myExp(double x)
 {
+    int i;
+    double sum;
 
-    return 0;
+
+    return sum;
 }
 
 
