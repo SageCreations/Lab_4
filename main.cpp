@@ -11,46 +11,49 @@
 
 using namespace std;
 
-double term(double x, int n)
+//power and factorial function
+double term(double x, int factorial)
 {
-    //power function
     int i;
-    double prod1 = 1., prod2 = 1.;
+    double sum = 1.0;
 
-    for (i = 0; i < n; i++)
-        prod1 = prod1 * x;
+    for (i = 1; i <= factorial; i++)
+        sum *= x / i;
 
-    //factorial function
-    for(i = 1; i <= n; i++)
-        prod2 = prod2 * i;
-
-    return 0;
+    return sum;
 }
 
 double mySin(double x)
 {
-    int i, sign = 1, maxPower = (int)x*20;
-    double sum = 0;
+    int i, sign = 1, maxPower = (int)x*21;
+    double sum ;
 
-    for (i = 0; i < maxPower; i++, sign = -sign)
-    {
-        sum = sum + sign * power
-    }
+    for (i = 0; maxPower > i; i++, sign = -sign)
+        sum += sign * term(x, 2 * i + 1);
 
-
-    return 0;
+    return sum;
 }
 
 double myCos(double x)
 {
+    int i, sign = 1, maxPower = (int)x*21;
+    double sum;
 
-    return 0;
+    for (i = 0; maxPower >= i; i++, sign = -sign)
+        sum += sign * term(x, 2 * i);
+
+    return sum;
 }
 
 double myExp(double x)
 {
+    int i, maxPower = (int)x*21;
+    double sum;
 
-    return 0;
+    for (i = 0; maxPower > i; i++)
+        sum += term(x, i);
+
+    return sum;
 }
 
 
@@ -62,7 +65,7 @@ int main() {
         cout << "\n\t\tInput X: ";
         cin  >> x;
 
-        cout << "\n\t\t\t\tLibraryResult" << "\t\tMyResult";
+        cout << "\n\t\t\tLibraryResult" << "\t\t\tMyResult";
 
         cout << "\nsin(" << setw(5) << x << ")"
              << "\t\t" << setw(11) << mySin(x)
@@ -72,7 +75,7 @@ int main() {
              << "\t\t" << setw(11) << myCos(x)
              << "\t\t\t" << setw(7) << setprecision(6) << cos(x);
 
-        cout << "\nsin(" << setw(5) << x << ")"
+        cout << "\nexp(" << setw(5) << x << ")"
              << "\t\t" << setw(11) << myExp(x)
              << "\t\t\t" << setw(7) << setprecision(6) << exp(x);
 
