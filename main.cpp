@@ -32,14 +32,13 @@ double mySin(double x)
     int i, sign = 1, maxPower = (int)x*20;
     double sum = 0;
 
-    for (i = 0; maxPower > i; i++, sign = -sign)
+    for (i = 0; i < maxPower; i++, sign = -sign)
     {
-        sum = sum + sign * maxPower;
-
+        sum = sum + sign * power
     }
 
 
-    return 5.12;
+    return 0;
 }
 
 double myCos(double x)
