@@ -20,7 +20,6 @@ double term(double x, int factorial)
     for (i = factorial; i > 0; i--)
         sum *= x / i;
 
-
     return sum;
 }
 
@@ -81,11 +80,9 @@ int main() {
              << "\t" << setw(11) << setprecision(6) << exp(x)
              << "\t" << setw(8) << setprecision(6) << myExp(x);
 
-
         cout << "\n\t\tDo more (Y/N) ? ";
         cin  >> more;
     } while (more == 'y' || more == 'Y');
-
 
     return 0;
 }
