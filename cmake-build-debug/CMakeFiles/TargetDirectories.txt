@@ -1,3 +1,3 @@
-C:/Users/realq/CLionProjects/Lab_4/cmake-build-debug/CMakeFiles/Lab_4.dir
-C:/Users/realq/CLionProjects/Lab_4/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/realq/CLionProjects/Lab_4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/SageCreations/CLionProjects/Lab_4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/SageCreations/CLionProjects/Lab_4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/SageCreations/CLionProjects/Lab_4/cmake-build-debug/CMakeFiles/Lab_4.dir
