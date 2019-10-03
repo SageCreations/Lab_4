@@ -12,18 +12,13 @@
 using namespace std;
 
 //power and factorial function
-double term(double x, int factorial, bool isExp)
+double term(double x, int factorial)
 {
     int i;
-    double sum = 0;
-    if (!isExp){
-        for (i = factorial-1; i > 0; i--)
-            sum = x * sum / i;
-    }
-    else {
-        for (i = factorial-1; i > 0; i--)
-            sum = 1 + (x * sum) / i;
-    }
+    double sum = 1.0;
+
+    for (i = factorial; i > 0; i--)
+        sum *= x / i;
 
 
     return sum;
@@ -31,33 +26,33 @@ double term(double x, int factorial, bool isExp)
 
 double mySin(double x)
 {
-    int i, sign = 1, maxPower = (int)x*21;
-    double sum;
+    int i, sign = 1, maxPower = (int)(abs(x))*21;
+    double sum = 0.0;
 
-    for (i = 0; maxPower > i; i++, sign = -sign)
-        sum += sign * term(x, 2 * i + 1, false);
+    for (i = 0; maxPower >= i; i++, sign = -sign)
+        sum += sign * term(x, 2 * i + 1);
 
     return sum;
 }
 
 double myCos(double x)
 {
-    int i, sign = 1, maxPower = (int)x*21;
-    double sum;
+    int i, sign = 1, maxPower = (int) (abs(x)) * 21;
+    double sum = 0.0;
 
-    for (i = 1; maxPower >= i; i++, sign = -sign)
-        sum += sign * term(x, 2 * i, false);
+    for (i = 0; maxPower >= i; i++, sign = -sign)
+        sum += sign * term(x, 2 * i);
 
     return sum;
 }
 
 double myExp(double x)
 {
-    int i, maxPower = (int)x*21;
-    double sum;
+    int i, maxPower = (int)(abs(x))*21;
+    double sum = 1.0;
 
     for (i = 1; maxPower >= i; i++)
-        sum = term(x, i, true);
+        sum += term(x, i);
 
     return sum;
 }
@@ -71,19 +66,20 @@ int main() {
         cout << "\n\t\tInput X: ";
         cin  >> x;
 
-        cout << "\n\t\t\tLibraryResult" << "\t\t\tMyResult";
+        cout << "\n\t\tLibraryResult" << "\tMyResult";
 
-        cout << "\nsin(" << setw(5) << x << ")"
-             << "\t\t" << setw(11) << mySin(x)
-             << "\t\t\t" << setw(7) << setprecision(6) << sin(x);
+        cout << fixed;
+        cout << "\nsin(" << setw(6) << setprecision(2 ) << x << ")"
+             << "\t" << setw(11) << setprecision(6 ) << sin(x)
+             << "\t" << setw(8) << setprecision(6) << mySin(x);
 
-        cout << "\ncos(" << setw(5) << x << ")"
-             << "\t\t" << setw(11) << myCos(x)
-             << "\t\t\t" << setw(7) << setprecision(6) << cos(x);
+        cout << "\ncos(" << setw(6) << setprecision(2) << x << ")"
+             << "\t" << setw(11) << setprecision(6) << cos(x)
+             << "\t" << setw(8) << setprecision(6) << myCos(x);
 
-        cout << "\nexp(" << setw(5) << x << ")"
-             << "\t\t" << setw(11) << myExp(x)
-             << "\t\t\t" << setw(7) << setprecision(6) << exp(x);
+        cout << "\nexp(" << setw(6) << setprecision(2) << x << ")"
+             << "\t" << setw(11) << setprecision(6) << exp(x)
+             << "\t" << setw(8) << setprecision(6) << myExp(x);
 
 
         cout << "\n\t\tDo more (Y/N) ? ";
